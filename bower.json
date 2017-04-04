@@ -25,6 +25,8 @@
     "px-sample-cards": "^0.7.1",
     "px-starter-kit-design": "^0.7.0",
     "px-theme": "^2.0.1",
-    "px-view-header": "^0.2.0"
+    "px-view-header": "^0.2.0",
+    "px-widget-cards": "^2.3.1",
+    "px-gauge": "^1.0.2"
   }
 }

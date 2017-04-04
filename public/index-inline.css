@@ -41,11 +41,11 @@
      * Dark
      */
 :root {
-  --px-app-nav-background-color: #242326;
+  --px-app-nav-background-color: #1b2a33;
   --px-app-nav-link-text-color: white;
   --px-app-nav-link-selected-color: #086e87;
   --px-app-nav-link-selected-active-color: #0986a4;
-  --px-app-nav-link-hover-color: #525156;
+  --px-app-nav-link-hover-color: #425866;
   --px-app-nav-link-active-color: #3573c5;
   --px-font-family: "GE Inspira Sans", sans-serif; }
 
@@ -340,27 +340,33 @@ sub {
 
 .alpha {
   font-size: 5rem;
-  line-height: 1.06667; }
+  line-height: 1.06667;
+  font-weight: normal; }
 
 .beta {
   font-size: 4rem;
-  line-height: 1; }
+  line-height: 1;
+  font-weight: normal; }
 
 .gamma {
   font-size: 3rem;
-  line-height: 1.33333; }
+  line-height: 1.33333;
+  font-weight: normal; }
 
 .delta {
   font-size: 2rem;
-  line-height: 1.33333; }
+  line-height: 1.33333;
+  font-weight: normal; }
 
 .epsilon {
   font-size: 1.33333rem;
-  line-height: 1; }
+  line-height: 1;
+  font-weight: normal; }
 
 .zeta {
   font-size: 0.8rem;
-  line-height: 1.66667; }
+  line-height: 1.66667;
+  font-weight: normal; }
 
 html {
   position: relative;
@@ -371,7 +377,7 @@ body {
 
 html, body {
   margin: 0;
-  background: #3b3b3f;
+  background: #2c404c;
   font-family: "GE Inspira Sans", sans-serif;
   font-weight: normal; }
 
