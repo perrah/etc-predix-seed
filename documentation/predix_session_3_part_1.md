@@ -62,7 +62,7 @@ update properties array within Polymer javascript (remember this is JSON use com
 queryHeaders : {
   type: Object,
   value: {
-    "x-base64-credentials" : "Basic aGVhbHRoY2FyZV9ldGMtcHgtYXBpX3Byb2Q6VXBUbkV6WFZ0eXlWZ3NBVg==",
+    "x-base64-credentials" : "Basic TOKEN_HERE",
     "x-clientid" : "healthcare_etc-px-api_prod",
     "Content-Type" : "application/json",
     "cache-control" : "no-cache"
