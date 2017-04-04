@@ -3,10 +3,8 @@
 what you'll cover in this guide:
 
  * iron-ajax installation & setup
- * Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML
- * Drag and drop a file into here to load it
- * File contents are saved in the URL so you can share files
-
+ * Data Binding
+ * Data Representation
 
 
 #### 1. Install iron-ajax
