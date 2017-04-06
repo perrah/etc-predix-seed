@@ -31,10 +31,10 @@ insert this into your main body of your view (its very hard to read but thats ok
       </px-vis-timeseries>
 ```
 
-#### 2. Data Bind & Transform
+#### 11. Data Bind & Transform
 create a new propert (remember those commas!)
 ```
-timeSeriesData : Object
+timeSeriesData : Object,
 ```
 add the following in to your _handleTempData function
 ```
@@ -44,14 +44,14 @@ this.timeSeriesData = data.map(function (item) {
 ```
 
 
-#### 2. Data Bind & Transform
+#### 12. Data Bind & Transform
 create a new function (remember comma's!)
 ```
 _updateData: function() {
         this.async(function() {
           this.$.getTempData.generateRequest();
         }, 300000);
-      }
+      },
 ```
 invoke your new function at the end of _handleTempData
 ```

@@ -53,7 +53,7 @@ queryBody : {
         ]
     }]
   }//end value
-}//end queryBody object
+},//end queryBody object
 
 ```
 #### 5. Update AJAX headers
@@ -77,14 +77,14 @@ within the polymer script create a new function to handle the data response from
 _handleTempData : function (req) {
 	var data = req.detail.response["tags"][0]["results"][0]["values"];
 console.log(data);
-}
+},
 
 ```
 
 #### 7. Bind your data
 now you have some data you need to bind it to a UI component to display it. Firstly create a new property (comma seperate...!)
 ```
-tableData : Object
+tableData : Object,
 ```
 and add the following to your _handleTempData function
 ```

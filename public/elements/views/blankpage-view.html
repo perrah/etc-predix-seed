@@ -1,26 +1,11 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/px-card/px-card.html">
+<link rel="import" href="../../bower_components/px-sample-cards/blank-card.html">
 <link rel="import" href="../../bower_components/px-view-header/px-view-header.html">
-<link rel="import" href="../../bower_components/px-widget-cards/px-twoup.html"/>
-<link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
-<link rel="import" href="../../bower_components/px-simple-line-chart/px-simple-line-chart.html">
-<link rel="import" href="../../bower_components/px-gauge/px-gauge.html"/>
-<!--Iron elements-->
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
-
+<link rel="import" href="../../bower_components/px-data-table/px-data-table.html"/>
+<link rel="import" href="../../bower_components/px-vis-timeseries/px-vis-timeseries.html">
 <dom-module id="blankpage-view">
-  <style>
-    :root {
-      --px-gauge-fill-abnormal-color: red;
-    }
-  </style>
-
   <template>
-    <!-- API Request to receive data
-    URL specicies the location of the API with the endpoint for queries
-    body specifices the actual query, please read time series documentation on Predix.io
-    headers is where we pass authentication information for the application
-    response is the method when the API returns something -->
     <iron-ajax
       auto
       id="getTempData"
@@ -33,37 +18,20 @@
       on-response="_handleTempData"
       debounce-duration="300">
     </iron-ajax>
+    <px-view-header title="Blank Page" style="display: block; margin-bottom: 6px;"></px-view-header>
+    <blank-card id="myCard">
+      An example of a blank card without any content (except for this brief description).  Replace this with the actual content for your application.
 
-    <!-- Page header -->
-    <px-view-header title="EHS - The Grove Centre" style="display: block; margin-bottom: 6px;"></px-view-header>
-    <!-- UI for a white card in the page -->
-    <px-card id="myCard">
-      <!-- breaks up the page into two columns, more are available please check predix-ui.com -->
-      <px-twoup id="widget-2" widget-header="IT Office - Temp Overview" widget-icon="fa-desktop" style="margin-bottom: 100px;">
+      <px-data-table
+      	  table-data='{{tableData}}'
+          language="en"striped="true"
+          filterable="true" sortable="true"
+          selectable="true" single-select="true"
+          show-column-chooser="true"
+          include-all-columns="true">
+      </px-data-table>
 
-        <div class='widget-1'><span>
-          <!--linechart with data from API-->
-          <px-simple-line-chart
-            line-data='{{lineData}}'
-            width="300" height="200" min="25" max="35" columns="5" rows="3"
-            threshold="1.8" min-label="min" max-label="max" threshold-label="avg">
-          </px-simple-line-chart>
-        </span></div>
-
-        <div class='widget-2'><span>
-            <px-gauge style="height: 150px; width: 300px;"
-            value="{{currentTemp}}" max="50" unit="C"
-            error='[[0,26],[32,50]]' abnormal='[[26,27],[31,32]]'
-            anomaly='[[27,28],[30,31]]' normal='[[28,30]]'>
-          </px-gauge>
-        </span></div>
-
-      </px-twoup>
-    </px-card>
-
-    <px-card id="myCard" header-text="IT Office - Temp Detail" icon="fa-fort-awesome">
-        <!--linechart with data from API-->
-        <px-vis-timeseries prevent-resize="true" debounce-resize-timing="250" width="700" height="450"
+      <px-vis-timeseries prevent-resize="true" debounce-resize-timing="250" width="700" height="450"
         progressive-rendering-points-per-frame="16000" progressive-rendering-min-frames="1"
         chart-horizontal-alignment="center" chart-vertical-alignment="center" margin='{"top":30,"bottom":60,"left":65,"right":65}'
         tooltip-config='{}' register-config='{"type":"vertical","width":200}' selection-type="xy"
@@ -79,72 +47,53 @@
         toolbar-config='{"config":{"advancedZoom":true,"pan":true,"tooltip":true,"logHover":{"buttonGroup":2,"tooltipLabel":"The submenu item of this menu will define custom mouse interaction","icon":"fa-leaf","subConfig":{"customClick":{"icon":"fa-coffee","buttonGroup":3,"tooltipLabel":"define some custom mouse interactions on chart","eventName":"my-custom-click","actionConfig":{"mousedown":"function(mousePos) { console.log(\"custom click on chart. Context is the chart. Mouse pos is available: \" + JSON.stringify(mousePos))}","mouseup":"function(mousePos) { console.log(\"custom action on mouse up the chart \" + JSON.stringify(mousePos));}","mouseout":"function(mousePos) { console.log(\"custom action on mouse out the chart \" + JSON.stringify(mousePos));}","mousemove":"function(mousePos) { console.log(\"custom action on hovering the chart \");}"}},"customClick2":{"buttonGroup":3,"icon":"fa-fire-extinguisher","tooltipLabel":"Remove all custom interactions","actionConfig":{"mousedown":null,"mouseup":null,"mouseout":null,"mousemove":null}}}}}}' navigator-config='{"xAxisConfig":{"tickFormat":"%b %d"}}'>
       </px-vis-timeseries>
 
-    </px-card>
+    </blank-card>
   </template>
   <script>
     Polymer({
       is: 'blankpage-view',
       properties: {
-        tableData : Object,
-        lineData : Object,
-        timeSeriesMean: Number,
         timeSeriesData : Object,
-        currentTemp: Number,
-        //query for the API
+        tableData : Object,
         queryBody : {
           type: Object,
           value : {
-              "start": 1490777615730,
-              "tags": [{
+            "start": 1490777615730,
+            "tags": [{
                 "name": [
-                  "ETC_PX_TRAINING"
+                    "ETC_PX_TRAINING"
                 ]
-              }]
+            }]
           }//end value
-        }, //end queryBody object
-        //headers for authentication (usually you would place this in environment variables for production)
+        },//end queryBody object
         queryHeaders : {
           type: Object,
           value: {
-            "x-base64-credentials" : "Basic TOKEN_HERE",
+            "x-base64-credentials" : "Basic aGVhbHRoY2FyZV9ldGMtcHgtYXBpX3Byb2Q6VXBUbkV6WFZ0eXlWZ3NBVg==",
             "x-clientid" : "healthcare_etc-px-api_prod",
             "Content-Type" : "application/json",
             "cache-control" : "no-cache"
-          }//end value
+            }//end value
         }//end queryHeader
-      }, //end properties
-      ready: function() {
-        console.log('blankpage-view ready()');
       },
       _updateData: function() {
         this.async(function() {
           this.$.getTempData.generateRequest();
         }, 300000);
       },
+      ready: function() {
+        console.log('blankpage-view ready()')
+      },
       _handleTempData : function (req) {
-        //value for recalibrating correct temperature
-        var TEMP_CALIBRATE = 0;
-        //get actual data
-        var data = req.detail.response["tags"][0]["results"][0]["values"];
+      	var data = req.detail.response["tags"][0]["results"][0]["values"];
         console.log(data);
-        //set px-data-table data
         this.tableData = data;
 
-        //set px-simple-line-chart data
-        this.lineData = data.map(function (item) {
-          return [item[0],item[1]-TEMP_CALIBRATE]
-        });
-
-        //time series data
         this.timeSeriesData = data.map(function (item) {
-          return {"x" : item[0], "y0" : item[1]-TEMP_CALIBRATE}
+        	return {"x" : item[0], "y0" : item[1]}
         });
-        //current temp
-        this.currentTemp = data[data.length -1][1]-TEMP_CALIBRATE;
-
-        //recall ajax
         this._updateData();
-      }//end response for API
+      }
     });
   </script>
 </dom-module>
