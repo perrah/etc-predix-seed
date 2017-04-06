@@ -3,8 +3,9 @@
 ## What is the ETC PX Seed?
 The ETC PX Seed is a working example of real time sensory data being read from an API into a dashboard. the sensory data is being sent from a live IOT device to read in temperature of its surrounding. The data is then sent up into the Predix Cloud for storage via API's which can then be queried and displayed in this example dashboard.
 
-The overview shows highlights over time, the current temperature with threshold limits and a detail time series - the dashboard automatically refreshes the API request for current data.
+The overview shows highlights over time, the current temperature with threshold limits and a detail time series - the dashboard automatically refreshes the API request for current data. (Please note we have stopped the pi sending data - you will see 1 week long worth of data)
 
+https://etc-px-seed.run.aws-usw02-pr.ice.predix.io
 
 ## What is Predix?
 Predix is GE Digital's Industrial IoT platform for connected devices. Please find more information at http://predix.io
