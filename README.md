@@ -1,33 +1,13 @@
-# Predix UI Seed
+# ETC PX Seed
 
-## What is the Predix UI Seed?
-The Predix UI Seed ("Seed") is a starter kit intended to accelerate Predix web application development.  It is an application template complete with frontend, server-side and deployment portions.  It uses [Polymer](http://www.polymer-project.org), [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components), SASS style files and specific JavaScript libraries for the frontend.  For the backend, it uses [NodeJS](http://nodejs.org) and specific modules.  For build and deployment, it uses the [Gulp](http://gulpjs.com/) utility together with specific plug-ins for packaging an application that can be deployed locally or to a cloud container.
+## What is the ETC PX Seed?
+The ETC PX Seed is a working example of real time sensory data being read from an API into a dashboard. the sensory data is being sent from a live IOT device to read in temperature of its surrounding. The data is then sent up into the Predix Cloud for storage via API's which can then be queried and displayed in this example dashboard.
 
-Through working code examples and extensive embedded comments the Seed provides directly-usable features such as layout, branding, theming, navigation, backend routing, responsiveness, organization of views, and micro-services integration, to name some.  The examples can be customized and adapted to specific needs in a straightforward manner.  The Seed also comes with look and feel that aligns with Predix UI Design.  All of these speed up application prototyping/development by enabling developers to focus on product functionality, instead of boilerplate concerns or simply getting an application started.
+The overview shows highlights over time, the current temperature with threshold limits and a detail time series - the dashboard automatically refreshes the API request for current data.
 
-Polymer is a component framework that relies on the browser's native capabilities over HTML and JavaScript enhancements.  Where there are differences in currently available features, polyfills are provided towards consistent cross-browser behavior.  By adopting the Polymer strategy the Seed strives for high cross-browser compatibility, as well as compatibility with future versions.
 
-Most of the frontend components provided in the Seed are from [Predix UI Components](http://www.predix-ui.com/), which are also built on Polymer.  These frontend building blocks have been researched and designed to address common UI component needs.  Predix UI Components can be used independently, or in combination with one another and with the Seed.  This achieves consistent behavior, look-and-feel, and high code re-use.
-
-The backend of the Seed is implemented as a NodeJS/Express web server.  It presently includes a minimal set of public modules and a couple of Predix-specific modules (for session and proxy concerns, for example).  Similar to the frontend, it is also straightforwardly customizable, even replaceable by another server application, if so desired.  [NodeJS](http://nodejs.org) is a server-side application framework based on JavaScript.  It enjoys strong growth and huge adoption in the server applications community.
-
-The features offered by the Seed are from open-source component projects, many of which are actively discussed and maintained.  This provides developers with available documentation and help in using such components for their projects.
-
-These are the main branches for the Seed, each one intended for a specific purpose:
-
-### Seed Branches
-
-#### develop #####
-Development branch, latest version as of January 2017.  Contains several examples of Predix UI Components (context browser, charts, time-series visualization), and integration with UAA and Predix time series services.
-
-#### master ####
-Production branch, base for **develop** branch.
-
-#### essential ####
-Minimal version, just enough to start a web application prototype.  It contains basic server-side routing and essential frontend features such as branding, header, navigation, sample card and footer.
-
-#### reference ####
-As of the time of writing, this is a future branch, envisioned to contain features found in the preceding branches, and working integration with Predix Asset service.  This will be the showcase version of the Seed.
+## What is Predix?
+Predix is GE Digital's Industrial IoT platform for connected devices. Please find more information at http://predix.io
 
 ## Getting Started
 
@@ -113,14 +93,14 @@ The simplest way to push the Seed application to a cloud environment is by modif
 3. Access the cloud deployment of your Seed application
 
   The output of the **cf push** command includes the URL to which your application was deployed.  Below is an example:
-  
+
   API endpoint:   https://api.endpoint.svc.ice.ge.com (API version: 2.62.0)   
   User:           john.doe@ge.com   
   Org:            predix-org   
   Space:          predix-space   
 
   Access your Seed application by loading the **API Endpoint** above in a web browser
-  
+
 ## Support and Further Information
 
 Ask questions and file tickets on <a href="https://www.predix.io/community" target="_blank">https://www.predix.io/community</a>.
