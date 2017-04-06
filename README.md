@@ -14,7 +14,7 @@ Predix is GE Digital's Industrial IoT platform for connected devices. Please fin
 ### Get the source code
 Make a directory for your project.  Clone or download and extract the seed in that directory.
 ```
-git clone https://github.com/PredixDev/predix-seed.git <target directory>
+git clone https://github.com/perrah/etc-px-seed.git <target directory>
 cd <target directory>
 ```
 (In the above git command the target directory has a default value of '**predix-seed**'.)
